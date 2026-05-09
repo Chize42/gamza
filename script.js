@@ -49,15 +49,25 @@ function startPetting() {
   stopDecreasing(); // 누르는 즉시 감소 중단
 }
 
-// 4. 쓰다듬기 종료 (딜레이 없이 즉시 실행)
+// 4. 쓰다듬기 종료 (100%일 때만 3초 딜레이, 아니면 즉시 감소)
 function stopPetting() {
   if (!isPetting) return;
   isPetting = false;
   gamjaImg.classList.remove("petting-active");
   heartEffect.style.opacity = 0;
 
-  // 3초 대기 없이 즉시 감소 로직 시작
-  startDecreasing();
+  // 기존 예약된 타이머가 있다면 제거
+  clearTimeout(delayTimer);
+
+  if (loveScore >= 100) {
+    // 바가 다 찼을 때만 3초 딜레이 후 감소 시작
+    delayTimer = setTimeout(() => {
+      startDecreasing();
+    }, 3000);
+  } else {
+    // 다 안 찼을 때는 얄짤없이 즉시 감소
+    startDecreasing();
+  }
 }
 
 // 5. 쓰다듬는 동작
@@ -77,7 +87,7 @@ function handleMove(e) {
 
   // 상승 수치 (감소 속도에 맞춰 밸런스 조정)
   if (loveScore < 100) {
-    loveScore += 0.8;
+    loveScore += 0.4;
     if (loveScore > 100) loveScore = 100;
   }
 
