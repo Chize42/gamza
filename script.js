@@ -6,6 +6,7 @@ const statusText = document.getElementById("statusText");
 let isPetting = false;
 let loveScore = 0;
 let decreaseInterval = null;
+let delayTimer = null;
 
 // 1. 친밀도 감소 로직 (속도 대폭 증가)
 function startDecreasing() {
