@@ -37,7 +37,7 @@ function updateUI() {
   if (loveScore >= 100) {
     statusText.innerText = "감자가 너무 행복해해요! ❤️";
   } else if (loveScore > 0) {
-    statusText.innerText = "오구오구~ 기분 좋다멍!";
+    statusText.innerText = "감자가 당신을 좋아해요! 계속 쓰다듬어 주세요!";
   } else {
     statusText.innerText = "감자의 머리를 부드럽게 쓰다듬어 주세요!";
   }
