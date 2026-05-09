@@ -93,6 +93,8 @@ body {
   height: 100%;
   background: #ff7043;
   transition: width 0.3s ease;
+  background: linear-gradient(90deg, #ffab91, #ff7043); /* 그라데이션 추가 */
+  box-shadow: 0 0 10px rgba(255, 112, 67, 0.4);
 }
 
 #statusText {
